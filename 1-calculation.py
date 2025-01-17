@@ -1,17 +1,12 @@
 #!/usr/bin/python3
-# calculator_1.py
 
-def add(a, b):
-    return a + b
+from calculator_1 import add, sub, div, mul
 
-def subtract(a, b):
-    return a - b
+if __name__ == "__main__":
+    a = 10
+    b = 5
 
-def multiply(a, b):
-    return a * b
-
-def divide(a, b):
-    if b != 0:
-        return a / b
-    return "Error: Division by zero"
-
+    print("{} + {} = {}".format(a, b, add(a, b)))
+    print("{} - {} = {}".format(a, b, sub(a, b)))
+    print("{} * {} = {}".format(a, b, mul(a, b)))
+    print("{} / {} = {}".format(a, b, div(a, b)))
