@@ -1,0 +1,35 @@
+>>> from 5-text_indentation import text_indentation
+>>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+Non autem hoc: igitur ne illud quidem.""")
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.$
+$
+Quonam modo?$
+$
+Utrum igitur tibi litteram videor an totas paginas commovere?$
+$
+Non autem hoc:$
+$
+igitur ne illud quidem.$
+$
+>>> text_indentation("Hello world. How are you? I am fine: thank you.")
+Hello world.$
+$
+How are you?$ 
+$
+I am fine:$ 
+$
+thank you.$
+$
+>>> text_indentation("This is a test")
+This is a test
+>>> text_indentation("What's this? Who's there?")
+What's this?$ 
+$
+Who's there?$ 
+$
+>>> text_indentation("")
+>>> Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
