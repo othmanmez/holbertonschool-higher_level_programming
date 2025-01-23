@@ -1,0 +1,21 @@
+>>> from 0-add_integer import add_integer
+>>> add_integer(10, 5)
+15
+>>> add_integer(10.5, 3)
+13
+>>> add_integer(10, 3.7)
+13
+>>> add_integer(10.5, 5.5)
+16
+>>> add_integer(10.5, 98)
+108
+>>> add_integer(10)
+108
+>>> add_integer(10, "5")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+>>> add_integer("10", 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
