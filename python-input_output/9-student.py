@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-"""
-This module contains the Student Class
-"""
+"""define class Student"""
 
 
 class Student:
-    """Class representation of a student"""
+    """class Student"""
+
     def __init__(self, first_name, last_name, age):
-        """Initializes the student"""
+        """initialize Student"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self):
-        """returns a dictionary representation of a Student instance"""
+        """return dictionary representation of Student"""
         return self.__dict__

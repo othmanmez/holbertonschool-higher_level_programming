@@ -1,24 +1,18 @@
 #!/usr/bin/python3
-import sys
-from 5-save_to_json_file import save_to_json_file
-from 6-load_from_json_file import load_from_json_file
+"""define function add_item"""
 
-def main():
-    # Check if there are command-line arguments (excluding the script name)
-    arguments = sys.argv[1:]
+from sys import argv
 
-    # Try to load existing data from the file, if it exists
-    try:
-        items = load_from_json_file('add_item.json')
-    except FileNotFoundError:
-        items = []  # If the file doesn't exist, initialize an empty list
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+filename = "add_item.json"
 
-    # Add the command-line arguments to the list
-    items.extend(arguments)
+try:
+    my_list = load_from_json_file(filename)
+except Exception:
+    my_list = []
 
-    # Save the updated list back to the file
-    save_to_json_file(items, 'add_item.json')
+for argument in argv[1:]:
+    my_list.append(argument)
 
-if __name__ == "__main__":
-    main()
-
+save_to_json_file(my_list, filename)
