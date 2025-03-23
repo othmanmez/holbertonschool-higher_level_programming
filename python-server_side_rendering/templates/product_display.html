@@ -1,0 +1,60 @@
+{% include 'header.html' %}
+    <div style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+        <h1>Products Display</h1>
+        
+        {% if error %}
+            <div style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+                {{ error }}
+            </div>
+        {% else %}
+            <p>Source: {{ source }}</p>
+            
+            {% if products %}
+                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                    <thead>
+                        <tr style="background-color: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #dee2e6;">Name</th>
+                            <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #dee2e6;">Category</th>
+                            <th style="padding: 0.75rem; text-align: right; border-bottom: 2px solid #dee2e6;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in products %}
+                            <tr style="border-bottom: 1px solid #dee2e6;">
+                                <td style="padding: 0.75rem;">{{ product.name }}</td>
+                                <td style="padding: 0.75rem;">{{ product.category }}</td>
+                                <td style="padding: 0.75rem; text-align: right;">${{ "%.2f"|format(product.price) }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p style="color: #666; font-style: italic;">No products found</p>
+            {% endif %}
+        {% endif %}
+        
+        <div style="margin-top: 2rem;">
+            <h2>Try different queries:</h2>
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="margin: 0.5rem 0;">
+                    <a href="/products?source=json" style="color: #007bff; text-decoration: none;">View all JSON products</a>
+                </li>
+                <li style="margin: 0.5rem 0;">
+                    <a href="/products?source=csv" style="color: #007bff; text-decoration: none;">View all CSV products</a>
+                </li>
+                <li style="margin: 0.5rem 0;">
+                    <a href="/products?source=sql" style="color: #007bff; text-decoration: none;">View all SQL products</a>
+                </li>
+                <li style="margin: 0.5rem 0;">
+                    <a href="/products?source=json&id=1" style="color: #007bff; text-decoration: none;">View JSON product with ID 1</a>
+                </li>
+                <li style="margin: 0.5rem 0;">
+                    <a href="/products?source=csv&id=2" style="color: #007bff; text-decoration: none;">View CSV product with ID 2</a>
+                </li>
+                <li style="margin: 0.5rem 0;">
+                    <a href="/products?source=sql&id=3" style="color: #007bff; text-decoration: none;">View SQL product with ID 3</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% include 'footer.html' %} 
